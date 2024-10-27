@@ -485,6 +485,90 @@
 </value>
 </block>
 </value>
+<next>
+<block type="controls_if" id="1!kXnL?nU@7nKSpCBF.+">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="x%ng_cJ9?PS;MTJ-ea4N">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">RightBumper</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_Number" id="c-BGLF3mC._}[/1jgy;6">
+<field name="IDENTIFIER">rightslideAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right slide"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="[ND;CZ*qwnH}Icyoz+_$">
+<field name="NUM">100</field>
+</shadow>
+<block type="math_number" id="W%d%@`99#=+drFMI4{Xm">
+<field name="NUM">100</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="dcMotor_setProperty_Number" id="]4RG?Wp^j!.}9yAk1lAC">
+<field name="IDENTIFIER">rightslideAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right slide"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="[u5IJFz7-t1;6CZ%Gg{_">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_number" id="f+7Xxa%OOY_y]F9@yQEh">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="BXVwyysC{!1wwj5jRW^6">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="RYYMf7$fIKud?^!h=+2[">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftBumper</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_Number" id="#ooMp1$3HlMaO}_wa5ym">
+<field name="IDENTIFIER">rightslideAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right slide"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="3TM;pKjhrj;1q-m}V0hr">
+<field name="NUM">-100</field>
+</shadow>
+<block type="math_number" id="yI|p,9|@spuc)@Z!gjZ)">
+<field name="NUM">-100</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="dcMotor_setProperty_Number" id="X-#/[s)ibDG9U8elh21+">
+<field name="IDENTIFIER">rightslideAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right slide"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="v._!uA6an`FJ|0)k*+?t">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_number" id="V9062x`kUQ(=Yd2,V.k*">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
 </block>
 </next>
 </block>
