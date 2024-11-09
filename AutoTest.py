@@ -3,7 +3,7 @@ from com.qualcomm.robotcore.eventloop.opmode import LinearOpMode
 from com.qualcomm.robotcore.hardware import DcMotor, Servo
 from com.qualcomm.robotcore.util import ElapsedTime
 
-@Autonomous(name="Autonomous code blue inside 23/24 PYTHON copy")
+@Autonomous(name="AutoTest 24/25")
 class Autonomouscodeblueinside2324(LinearOpMode):
 
     def runOpMode(self):
