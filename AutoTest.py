@@ -4,7 +4,7 @@ from com.qualcomm.robotcore.hardware import DcMotor, Servo
 from com.qualcomm.robotcore.util import ElapsedTime
 
 @Autonomous(name="AutoTest 24/25")
-class Autonomouscodeblueinside2324(LinearOpMode):
+class AutoTest(LinearOpMode):
 
     def runOpMode(self):
         # Initialize hardware variables
