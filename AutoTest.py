@@ -1,7 +1,7 @@
-from com.qualcomm.robotcore.eventloop.opmode import Autonomous
-from com.qualcomm.robotcore.eventloop.opmode import LinearOpMode
-from com.qualcomm.robotcore.hardware import DcMotor, Servo
-from com.qualcomm.robotcore.util import ElapsedTime
+from com.qualcomm.robotcore.eventloop.opmode import Autonomous # type: ignore
+from com.qualcomm.robotcore.eventloop.opmode import LinearOpMode # type: ignore
+from com.qualcomm.robotcore.hardware import DcMotor, Servo # type: ignore
+from com.qualcomm.robotcore.util import ElapsedTime # type: ignore
 
 @Autonomous(name="AutoTest 24/25")
 class AutoTest(LinearOpMode):
@@ -51,3 +51,4 @@ class AutoTest(LinearOpMode):
                 self.frontright.setPower(-1)
                 self.rearleft.setPower(1)
                 self.rearright.setPower(1)
+            
