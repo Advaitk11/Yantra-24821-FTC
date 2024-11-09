@@ -1,5 +1,4 @@
-from com.qualcomm.robotcore.eventloop.opmode import Autonomous # type: ignore
-from com.qualcomm.robotcore.eventloop.opmode import LinearOpMode # type: ignore
+from com.qualcomm.robotcore.eventloop.opmode import Autonomous, LinearOpMode # type: ignore
 from com.qualcomm.robotcore.hardware import DcMotor, Servo # type: ignore
 from com.qualcomm.robotcore.util import ElapsedTime # type: ignore
 
