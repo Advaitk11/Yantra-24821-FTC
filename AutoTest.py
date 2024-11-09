@@ -8,8 +8,8 @@ class AutoTest(LinearOpMode):
 
     def runOpMode(self):
         # Initialize hardware variables
-        self.leftslide = self.hardwareMap.get(Servo, "leftslide")
-        self.rightslide = self.hardwareMap.get(Servo, "rightslide")
+        self.leftslide = self.hardwareMap.get(DcMotor, "leftslide")
+        self.rightslide = self.hardwareMap.get(DcMotor, "rightslide")
         self.frontleft = self.hardwareMap.get(DcMotor, "front left")
         self.frontright = self.hardwareMap.get(DcMotor, "front right")
         self.rearleft = self.hardwareMap.get(DcMotor, "rear left")
