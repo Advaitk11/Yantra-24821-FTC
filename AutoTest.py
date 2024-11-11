@@ -7,12 +7,23 @@ class AutoTest(LinearOpMode):
 
     def runOpMode(self):
         # Initialize hardware variables
-        self.leftslide = self.hardwareMap.get(DcMotor, "leftslide")
-        self.rightslide = self.hardwareMap.get(DcMotor, "rightslide")
+
+        #Slide
+        self.leftslide = self.hardwareMap.get(DcMotor, "left slide")
+        self.rightslide = self.hardwareMap.get(DcMotor, "right slide")
+        
+        #Pivot
+        self.leftpivot = self.hardwareMap.get(DcMotor, "left pivot")
+        self.rightpivot = self.hardwareMap.get(DcMotor, "right pivot")
+        
+        #Movement
         self.frontleft = self.hardwareMap.get(DcMotor, "front left")
         self.frontright = self.hardwareMap.get(DcMotor, "front right")
         self.rearleft = self.hardwareMap.get(DcMotor, "rear left")
         self.rearright = self.hardwareMap.get(DcMotor, "rear right")
+
+        self.frontright.setDirection(DcMotor.Direction.FORWARD)
+        self.rearright.setDirection(DcMotor.Direction.REVERSE)
 
         # Initialize the timer
         timer = ElapsedTime()
@@ -50,4 +61,3 @@ class AutoTest(LinearOpMode):
                 self.frontright.setPower(-1)
                 self.rearleft.setPower(1)
                 self.rearright.setPower(1)
-            
