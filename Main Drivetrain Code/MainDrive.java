@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import org.firstinspires.ftc.robotcore.external.JavaUtil;
 
-@TeleOp(name = "MainDrive (Java)")
+@TeleOp(name = "MainDrive")
 public class MainDrive extends LinearOpMode {
 
   private DcMotor frontright;

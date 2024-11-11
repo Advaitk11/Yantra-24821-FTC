@@ -486,16 +486,32 @@
 </block>
 </value>
 <next>
+<block type="comment" id="lMv[!gg[Y7i9S~HhSPMz">
+<field name="COMMENT">all left side is reversed becasue of mototr mounting </field>
+<next>
+<block type="comment" id="rGl]aAB[J5^1.$N0=*eQ">
+<field name="COMMENT">Right slide code</field>
+<next>
 <block type="controls_if" id="1!kXnL?nU@7nKSpCBF.+">
 <mutation else="1"/>
 <value name="IF0">
 <block type="gamepad_getProperty_Boolean" id="x%ng_cJ9?PS;MTJ-ea4N">
 <field name="IDENTIFIER">gamepad1</field>
-<field name="PROP">RightBumper</field>
+<field name="PROP">DpadDown</field>
 <data>{"IDENTIFIER":"gamepad1"}</data>
 </block>
 </value>
 <statement name="DO0">
+<block type="dcMotor_setProperty_RunMode" id="u6.3YLyAL[;mZYjpm%!Z">
+<field name="IDENTIFIER">rightslideAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"right slide"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="y_p:;Y~]#y:1nINTy=t+">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
 <block type="dcMotor_setProperty_Number" id="c-BGLF3mC._}[/1jgy;6">
 <field name="IDENTIFIER">rightslideAsDcMotor</field>
 <field name="PROP">Power</field>
@@ -505,9 +521,23 @@
 <field name="NUM">100</field>
 </shadow>
 <block type="math_number" id="W%d%@`99#=+drFMI4{Xm">
-<field name="NUM">100</field>
+<field name="NUM">10000</field>
 </block>
 </value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="8I=DYisVbjtR}Ys`9)GH">
+<field name="IDENTIFIER">rightslideAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"right slide"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="hFCA0*RS~$Cf~JxAhAJ0">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
 </block>
 </statement>
 <statement name="ELSE">
@@ -531,11 +561,21 @@
 <value name="IF0">
 <block type="gamepad_getProperty_Boolean" id="RYYMf7$fIKud?^!h=+2[">
 <field name="IDENTIFIER">gamepad1</field>
-<field name="PROP">LeftBumper</field>
+<field name="PROP">DpadUp</field>
 <data>{"IDENTIFIER":"gamepad1"}</data>
 </block>
 </value>
 <statement name="DO0">
+<block type="dcMotor_setProperty_RunMode" id="gfoBGc/XuQRPe@7||=[;">
+<field name="IDENTIFIER">rightslideAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"right slide"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="1a/=IjAA6?2A(:snpS*]">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
 <block type="dcMotor_setProperty_Number" id="#ooMp1$3HlMaO}_wa5ym">
 <field name="IDENTIFIER">rightslideAsDcMotor</field>
 <field name="PROP">Power</field>
@@ -545,9 +585,23 @@
 <field name="NUM">-100</field>
 </shadow>
 <block type="math_number" id="yI|p,9|@spuc)@Z!gjZ)">
-<field name="NUM">-100</field>
+<field name="NUM">-10000</field>
 </block>
 </value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="eO:S;%:9Z2,Qs/L5Hw2O">
+<field name="IDENTIFIER">rightslideAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"right slide"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="jny(8)=aT}Q$-ou2[)zE">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
 </block>
 </statement>
 <statement name="ELSE">
@@ -565,6 +619,325 @@
 </value>
 </block>
 </statement>
+<next>
+<block type="comment" id="Ce1Z)189L|PDND4bApgR">
+<field name="COMMENT">Left slide code code</field>
+<next>
+<block type="controls_if" id="ArJJZ|EZC%1$Na=a|[Hv">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="6IN~$]UMB(X5D$VDC*}.">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadDown</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_RunMode" id="t59axuM}D^[-BmKMSE0@">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="*ze14Yt)QYBiu+j@6t#6">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="iJiHe4VTF^y9-,.81Etb">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">100</field>
+</shadow>
+<block type="math_number" id="z7yZyfym]wnkXb2a89j(">
+<field name="NUM">10000</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="(HvERliYky@Mhgwqb1pF">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="`On~3)ZEm]zW#~i`9KO:">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="dcMotor_setProperty_Number" id="|7K-dqX)3yt?5kQN]^X{">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_number" id="Kr*]7gg@ojJ8YpyNz3wh">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="ev?,q~KS--x__*m!x@QQ">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="LgW6FJOtrN3c+D9BZUNl">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadUp</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_RunMode" id="IyIk/2lb.5b9zP,p3Vo5">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="C!@_sxw*I.4mPKey^WXs">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id=";(:ijT.p;]St-|7wN?m:">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">100</field>
+</shadow>
+<block type="math_number" id=".E1wY;1,XI1dyDLG9)2g">
+<field name="NUM">-10000</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="V#.WGtC+Zb#s*Wq;EcQ9">
+<field name="IDENTIFIER">rightslideAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"right slide"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="w(-_g[-%ym30*oPWkiIv">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="dcMotor_setProperty_Number" id="Ul$+`]@`/9J5a*90k]8g">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_number" id="e7VOJrJ=jtk)Cd2V?iOQ">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="comment" id="y-}Smg$je]([IWQmQw6|">
+<field name="COMMENT">Right pivot code</field>
+<next>
+<block type="controls_if" id="]x{MIO@*_t~4),R6!E@^">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="A^OJV-4W!7A!zJbG,q*)">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadRight</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_Number" id="qnklD9;kw,ByfmPe}6cR">
+<field name="IDENTIFIER">rightpivotAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right pivot"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">100</field>
+</shadow>
+<block type="math_number" id=")?nqHostV0IOAG_)m[lN">
+<field name="NUM">1</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="dcMotor_setProperty_Number" id="h`:NNm0cdih5k=*CS7/y">
+<field name="IDENTIFIER">rightpivotAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right pivot"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_number" id="e}:rg7Bsh4/,:#U,@@]g">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="{xUW8NU,n$HyL=r6HK(k">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="14p:=/XkkwshGTDbmQT}">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadLeft</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_Number" id="$BmB{/l+1Fnz4rt_305W">
+<field name="IDENTIFIER">rightpivotAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right pivot"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">100</field>
+</shadow>
+<block type="math_number" id="G%=gc=_7{nR5jwh#^I@+">
+<field name="NUM">-1</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="dcMotor_setProperty_Number" id="ns0xWk*K@rJH8rFuKQtf">
+<field name="IDENTIFIER">rightpivotAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"right pivot"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_number" id="?WqZS]T)yBZF^-z0R$:F">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="comment" id="r,iJ..!E1%RO)yRh04J7">
+<field name="COMMENT">Left pivot code</field>
+<next>
+<block type="controls_if" id="-u(;~Ecf[aj7!/O!30dT">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="C[35%+6;F/I(-v!Ah#tE">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadRight</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_Number" id="nnI/]E1SGoAqCD{Z5vZ7">
+<field name="IDENTIFIER">leftpivotAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left pivot"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">100</field>
+</shadow>
+<block type="math_number" id="SYQ_77v6akILiNm1!fTN">
+<field name="NUM">-1</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="dcMotor_setProperty_Number" id="8%7OA/IDao{M(0]Vwz?D">
+<field name="IDENTIFIER">leftpivotAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left pivot"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_number" id="S79o+|vp9ssn`nsiFC%`">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="~p]wy:oLlcZ#x_YG_Ys/">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="rK@bvw:z-pN1]7oMA~+m">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">DpadLeft</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_Number" id="(89EFFE{1JnpdS1ykdu]">
+<field name="IDENTIFIER">leftpivotAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left pivot"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">100</field>
+</shadow>
+<block type="math_number" id="5W=(Dv.l$ex.o.fOx1jA">
+<field name="NUM">1</field>
+</block>
+</value>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="dcMotor_setProperty_Number" id="RKx=Zemhaz)@cH^sB__E">
+<field name="IDENTIFIER">leftpivotAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left pivot"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_number" id="N@:4[e.8QZlRikuScrvj">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
 </block>
 </next>
 </block>

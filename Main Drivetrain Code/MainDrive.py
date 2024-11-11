@@ -1,8 +1,8 @@
 from com.qualcomm.robotcore.eventloop.opmode import LinearOpMode, TeleOp
 from com.qualcomm.robotcore.hardware import DcMotor
 
-@TeleOp(name="OurmainDrivetrainforeverdontchangewithoutcopy (Blocks to Python)")
-class OurmainDrivetrainforeverdontchangewithoutcopy(LinearOpMode):
+@TeleOp(name="MainDrive")
+class MainDrive(LinearOpMode):
 
     def runOpMode(self):
         # Initialize hardware variables
@@ -15,7 +15,7 @@ class OurmainDrivetrainforeverdontchangewithoutcopy(LinearOpMode):
         self.rightpivot = self.hardwareMap.get(DcMotor, "right pivot")
         self.leftpivot = self.hardwareMap.get(DcMotor, "left pivot")
 
-        # Reverse directions if necessary
+        # Set motor directions
         self.frontright.setDirection(DcMotor.Direction.FORWARD)
         self.rearright.setDirection(DcMotor.Direction.REVERSE)
 
@@ -24,8 +24,8 @@ class OurmainDrivetrainforeverdontchangewithoutcopy(LinearOpMode):
 
         while self.opModeIsActive():
             # Gamepad input processing
-            y = -self.gamepad1.left_stick_y  # Remember, Y stick value is reversed
-            x = self.gamepad1.left_stick_x * 1.1  # Counteract imperfect strafing
+            y = -self.gamepad1.left_stick_y  # Y stick is reversed
+            x = self.gamepad1.left_stick_x * 1.1  # Adjust for strafing
             rx = self.gamepad1.right_stick_x
             
             # Compute the denominator for scaling powers
