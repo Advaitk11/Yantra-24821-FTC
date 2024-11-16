@@ -26,9 +26,9 @@ public class OurmainDrivetrainforeverdontchangewithoutcopy extends LinearOpMode 
   @Override
   public void runOpMode() {
     double denominator;
-    float y;
-    float rx;
-    double x;
+    float y = 0.0f;
+    float rx = 0.0f;
+    double x = 0.0;
 
     frontright = hardwareMap.get(DcMotor.class, "front right");
     rearright = hardwareMap.get(DcMotor.class, "rear right");
