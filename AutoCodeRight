@@ -37,6 +37,7 @@ public class AutoCodeRight extends LinearOpMode {
         // Reverse the right side motors
         frontright.setDirection(DcMotor.Direction.FORWARD);
         rearright.setDirection(DcMotor.Direction.REVERSE);
+        rightservo.setDirection(CRServo.Direction.REVERSE);
 
         // Set initial positions for slide motors (Optional)
         int position_leftslide = leftslide.getCurrentPosition();
@@ -93,6 +94,7 @@ public class AutoCodeRight extends LinearOpMode {
             // Activate slide for 2 seconds (from 11s to 13s)
             while (opModeIsActive() && timer.seconds() <= 13) {
                 leftslide.setPower(1);
+                rightslide.setPower(1);
             }
 
             // Move servos for 2 seconds (from 13s to 15s)
@@ -104,6 +106,7 @@ public class AutoCodeRight extends LinearOpMode {
             // Unextend slide for 2 seconds (from 15s to 17s)
             while (opModeIsActive() && timer.seconds() <= 17) {
                 leftslide.setPower(-1);
+                rightslide.setPower(-1);
             }
 
             // Park robot in the observation zone for 6 seconds (from 17s to 23s)
