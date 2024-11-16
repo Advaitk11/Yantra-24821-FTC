@@ -2,20 +2,23 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import org.firstinspires.ftc.robotcore.external.JavaUtil;
 
-@TeleOp(name = "MainDrive")
-public class MainDrive extends LinearOpMode {
+@TeleOp(name = "OurmainDrivetrainforeverdontchangewithoutcopy (Blocks to Java)")
+public class OurmainDrivetrainforeverdontchangewithoutcopy extends LinearOpMode {
 
   private DcMotor frontright;
   private DcMotor rearright;
   private DcMotor frontleft;
   private DcMotor rearleft;
   private DcMotor rightslide;
-  private DcMotor leftslide;
   private DcMotor rightpivot;
   private DcMotor leftpivot;
+  private CRServo leftservo;
+  private CRServo rightservo;
+  private DcMotor leftslide;
 
   /**
    * This function is executed when this Op Mode is selected from the Driver Station.
@@ -32,9 +35,11 @@ public class MainDrive extends LinearOpMode {
     frontleft = hardwareMap.get(DcMotor.class, "front left");
     rearleft = hardwareMap.get(DcMotor.class, "rear left");
     rightslide = hardwareMap.get(DcMotor.class, "right slide");
-    leftslide = hardwareMap.get(DcMotor.class, "left slide");
     rightpivot = hardwareMap.get(DcMotor.class, "right pivot");
     leftpivot = hardwareMap.get(DcMotor.class, "left pivot");
+    leftservo = hardwareMap.get(CRServo.class, "left servo");
+    rightservo = hardwareMap.get(CRServo.class, "right servo");
+    leftslide = hardwareMap.get(DcMotor.class, "left slide");
 
     // Reverse the right side motors.  This may be wrong for your setup.
     // If your robot moves backwards when commanded to go forwards, reverse the left side instead.
@@ -59,48 +64,28 @@ public class MainDrive extends LinearOpMode {
       // all left side is reversed becasue of mototr mounting
       // Right slide code
       if (gamepad1.dpad_down) {
-        rightslide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightslide.setPower(10000);
-        rightslide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightslide.setPower(1);
       } else {
-        rightslide.setPower(0);
-      }
-      if (gamepad1.dpad_up) {
-        rightslide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightslide.setPower(-10000);
-        rightslide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-      } else {
-        rightslide.setPower(0);
-      }
-      // Left slide code code
-      if (gamepad1.dpad_down) {
-        leftslide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        leftslide.setPower(10000);
-        leftslide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-      } else {
-        leftslide.setPower(0);
-      }
-      if (gamepad1.dpad_up) {
-        leftslide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        leftslide.setPower(-10000);
-        rightslide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-      } else {
-        leftslide.setPower(0);
+        if (gamepad1.dpad_up) {
+          rightslide.setPower(-1);
+        } else {
+          rightslide.setPower(0);
+        }
       }
       // Right pivot code
       if (gamepad1.dpad_right) {
-        rightpivot.setPower(1);
+        rightpivot.setPower(0.5);
       } else {
         rightpivot.setPower(0);
       }
       if (gamepad1.dpad_left) {
-        rightpivot.setPower(-1);
+        rightpivot.setPower(0.5);
       } else {
         rightpivot.setPower(0);
       }
       // Left pivot code
       if (gamepad1.dpad_right) {
-        leftpivot.setPower(-1);
+        leftpivot.setPower(1);
       } else {
         leftpivot.setPower(0);
       }
@@ -108,6 +93,23 @@ public class MainDrive extends LinearOpMode {
         leftpivot.setPower(1);
       } else {
         leftpivot.setPower(0);
+      }
+      // intake claw code
+      leftservo.setDirection(CRServo.Direction.FORWARD);
+      rightservo.setDirection(CRServo.Direction.FORWARD);
+      if (gamepad1.left_bumper) {
+        leftservo.setPower(1000);
+      } else if (gamepad1.right_bumper) {
+        leftservo.setPower(-1000);
+      } else {
+        leftservo.setPower(0);
+      }
+      if (gamepad1.left_bumper) {
+        rightservo.setPower(-1000);
+      } else if (gamepad1.right_bumper) {
+        rightservo.setPower(1000);
+      } else {
+        rightservo.setPower(0);
       }
     }
   }
