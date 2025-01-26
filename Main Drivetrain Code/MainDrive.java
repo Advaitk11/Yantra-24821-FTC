@@ -2,52 +2,62 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.robotcore.external.JavaUtil;
 
-@TeleOp(name = "OurmainDrivetrainforeverdontchangewithoutcopy (Blocks to Java)")
-public class OurmainDrivetrainforeverdontchangewithoutcopy extends LinearOpMode {
+@TeleOp(name = "OUR_MAIN_DRIVE1 (Blocks to Java)")
+public class OUR_MAIN_DRIVE1 extends LinearOpMode {
 
-  private DcMotor frontright;
-  private DcMotor rearright;
+  private Servo armservo;
   private DcMotor frontleft;
   private DcMotor rearleft;
-  private DcMotor rightslide;
-  private DcMotor rightpivot;
-  private DcMotor leftpivot;
-  private CRServo leftservo;
-  private CRServo rightservo;
   private DcMotor leftslide;
+  private DcMotor frontright;
+  private DcMotor rearright;
+  private Servo claw;
+  private DcMotor winch;
 
   /**
    * This function is executed when this Op Mode is selected from the Driver Station.
    */
   @Override
   public void runOpMode() {
+    int cor_toggle;
     double denominator;
-    float y = 0.0f;
-    float rx = 0.0f;
-    double x = 0.0;
+    float y;
+    float rx;
+    double x;
+    boolean b_pressed;
+    int n;
 
-    frontright = hardwareMap.get(DcMotor.class, "front right");
-    rearright = hardwareMap.get(DcMotor.class, "rear right");
+    armservo = hardwareMap.get(Servo.class, "arm servo");
     frontleft = hardwareMap.get(DcMotor.class, "front left");
     rearleft = hardwareMap.get(DcMotor.class, "rear left");
-    rightslide = hardwareMap.get(DcMotor.class, "right slide");
-    rightpivot = hardwareMap.get(DcMotor.class, "right pivot");
-    leftpivot = hardwareMap.get(DcMotor.class, "left pivot");
-    leftservo = hardwareMap.get(CRServo.class, "left servo");
-    rightservo = hardwareMap.get(CRServo.class, "right servo");
     leftslide = hardwareMap.get(DcMotor.class, "left slide");
+    frontright = hardwareMap.get(DcMotor.class, "front right");
+    rearright = hardwareMap.get(DcMotor.class, "rear right");
+    claw = hardwareMap.get(Servo.class, "claw");
+    winch = hardwareMap.get(DcMotor.class, "winch");
 
-    // Reverse the right side motors.  This may be wrong for your setup.
-    // If your robot moves backwards when commanded to go forwards, reverse the left side instead.
-    frontright.setDirection(DcMotor.Direction.FORWARD);
-    rearright.setDirection(DcMotor.Direction.REVERSE);
+    armservo.setDirection(Servo.Direction.FORWARD);
+    frontleft.setDirection(DcMotor.Direction.REVERSE);
+    rearleft.setDirection(DcMotor.Direction.REVERSE);
+    leftslide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    leftslide.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    leftslide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+    frontleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    frontright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    rearleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    rearright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    frontleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    frontright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    rearleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    rearright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    cor_toggle = 0;
     waitForStart();
+    armservo.setPosition(0.5);
     while (opModeIsActive()) {
-      telemetry.addData("power", (y + x + rx) / denominator);
       // Remember, Y stick value is reversed
       y = -gamepad1.left_stick_y;
       // Factor to counteract imperfect strafing
@@ -57,60 +67,78 @@ public class OurmainDrivetrainforeverdontchangewithoutcopy extends LinearOpMode 
       // This ensures all powers maintain the same ratio, but only if one is outside of the range [-1, 1].
       denominator = JavaUtil.maxOfList(JavaUtil.createListWith(JavaUtil.sumOfList(JavaUtil.createListWith(Math.abs(y), Math.abs(x), Math.abs(rx))), 1));
       // Make sure your ID's match your configuration
-      frontleft.setPower(((y + x) - rx) / denominator);
+      frontleft.setPower((y + x + rx) / denominator);
       rearleft.setPower(((y - x) + rx) / denominator);
       frontright.setPower(((y - x) - rx) / denominator);
-      rearright.setPower((y + x + rx) / denominator);
+      rearright.setPower(((y + x) - rx) / denominator);
       // all left side is reversed becasue of mototr mounting
-      // Right slide code
-      if (gamepad1.dpad_down) {
-        rightslide.setPower(1);
+      // Left slide code
+      if (gamepad2.dpad_up || gamepad2.dpad_down) {
+        leftslide.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+      }
+      if (gamepad2.dpad_down) {
+        leftslide.setPower(-0.6);
       } else {
-        if (gamepad1.dpad_up) {
-          rightslide.setPower(-1);
+        if (gamepad2.dpad_up) {
+          leftslide.setPower(1);
         } else {
-          rightslide.setPower(0);
+          leftslide.setPower(0);
         }
       }
-      // Right pivot code
-      if (gamepad1.dpad_right) {
-        rightpivot.setPower(0.5);
-      } else {
-        rightpivot.setPower(0);
+      if (gamepad2.y && armservo.getPosition() <= 0.5) {
+        armservo.setPosition(armservo.getPosition() + 0.02);
       }
-      if (gamepad1.dpad_left) {
-        rightpivot.setPower(0.5);
-      } else {
-        rightpivot.setPower(0);
+      if (gamepad2.a && armservo.getPosition() >= 0.1 && armservo.getPosition() <= 1) {
+        armservo.setPosition(armservo.getPosition() - 0.02);
       }
-      // Left pivot code
-      if (gamepad1.dpad_right) {
-        leftpivot.setPower(1);
-      } else {
-        leftpivot.setPower(0);
+      if (gamepad2.left_bumper) {
+        claw.setPosition(1);
       }
-      if (gamepad1.dpad_left) {
-        leftpivot.setPower(1);
-      } else {
-        leftpivot.setPower(0);
+      if (gamepad2.right_bumper) {
+        claw.setPosition(0.6);
       }
-      // intake claw code
-      leftservo.setDirection(CRServo.Direction.FORWARD);
-      rightservo.setDirection(CRServo.Direction.FORWARD);
-      if (gamepad1.left_bumper) {
-        leftservo.setPower(1000);
-      } else if (gamepad1.right_bumper) {
-        leftservo.setPower(-1000);
+      if (gamepad2.b) {
+        if (!b_pressed) {
+          if (cor_toggle == 0) {
+            cor_toggle = 1;
+          } else {
+            cor_toggle = 0;
+          }
+          b_pressed = true;
+        }
       } else {
-        leftservo.setPower(0);
+        b_pressed = false;
       }
-      if (gamepad1.left_bumper) {
-        rightservo.setPower(-1000);
-      } else if (gamepad1.right_bumper) {
-        rightservo.setPower(1000);
-      } else {
-        rightservo.setPower(0);
+      if (gamepad2.dpad_up || gamepad2.dpad_down) {
+        n = leftslide.getCurrentPosition();
       }
+      if (cor_toggle == 0) {
+        if (!(gamepad2.dpad_up || gamepad2.dpad_down)) {
+          if (Math.abs(n - leftslide.getCurrentPosition()) > 25) {
+            leftslide.setTargetPosition(n);
+            leftslide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            leftslide.setTargetPosition(n);
+            leftslide.setPower(1);
+          }
+        }
+      }
+      if (gamepad1.a) {
+        armservo.setPwmDisable();
+        winch.setPower(1);
+      }
+      if (gamepad1.b) {
+        armservo.setPwmDisable();
+        winch.setPower(-1);
+      }
+      telemetry.addData("arm position", armservo.getPosition());
+      telemetry.addData("cor toggle", cor_toggle);
+      telemetry.addData("n", n);
+      telemetry.addData("leftslide actual pos", leftslide.getCurrentPosition());
+      telemetry.addData("front left pos", frontleft.getCurrentPosition());
+      telemetry.addData("front right pos", frontright.getCurrentPosition());
+      telemetry.addData("rear left pos", rearleft.getCurrentPosition());
+      telemetry.addData("rear right pos", rearright.getCurrentPosition());
+      telemetry.update();
     }
   }
 }
