@@ -1,42 +1,217 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
 <variables>
+<variable id="|AkrV;vs6Xz|}rTj+2[9">cor_toggle</variable>
 <variable id="]#MBGP`G6{E0o46rh-XV">denominator</variable>
 <variable id="J,KtXc!}`~PyFLlNl~Fv">y</variable>
 <variable id="xJZJH):(0WQtG_CIq`mH">rx</variable>
 <variable id="{7*gXSsX229h0IdVUt^[">x</variable>
+<variable id="h(`gv`(v?Y}6q.nnyfAs">b_pressed</variable>
+<variable id="aIODa(*DS^aODW|4y=QG">n</variable>
 </variables>
-<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="50" y="50">
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="-280" y="118">
 <field name="NAME">runOpMode</field>
 <comment pinned="false" h="32" w="532">This function is executed when this Op Mode is selected from the Driver Station.</comment>
 <data>{"commentPositionLeft":173,"commentPositionTop":-8}</data>
 <statement name="STACK">
-<block type="comment" id="cBQNfb%_qY1[|[F8%CTW">
-<field name="COMMENT">Reverse the right side motors.  This may be wrong for your setup.</field>
-<next>
-<block type="comment" id="U{iU)`F=sAwX$5$|R0%;">
-<field name="COMMENT">If your robot moves backwards when commanded to go forwards, reverse the left side instead.</field>
-<next>
-<block type="dcMotor_setProperty_Direction" id="#!y|w+,AdUJ^[P{o/.`c">
-<field name="IDENTIFIER">frontrightAsDcMotor</field>
+<block type="servo_setProperty_Direction" id="*ic4o14zm++pi:kA+iG(">
+<field name="IDENTIFIER">armservoAsServo</field>
 <field name="PROP">Direction</field>
-<data>{"IDENTIFIER":"front right"}</data>
+<data>{"IDENTIFIER":"arm servo"}</data>
 <value name="VALUE">
-<shadow type="dcMotor_typedEnum_direction" id="]viqa3,~|+|s=Fxwa:1n">
+<shadow type="servo_typedEnum_direction" id="U$|!_l9HwhargfJx6/[O">
 <field name="DIRECTION">FORWARD</field>
 </shadow>
 </value>
 <next>
-<block type="dcMotor_setProperty_Direction" id="AIgOB!7hC5|vJVicxYj+">
-<field name="IDENTIFIER">rearrightAsDcMotor</field>
+<block type="dcMotor_setProperty_Direction" id="M91Xm73#9aB=eGLmAu:7">
+<field name="IDENTIFIER">frontleftAsDcMotor</field>
 <field name="PROP">Direction</field>
-<data>{"IDENTIFIER":"rear right"}</data>
+<data>{"IDENTIFIER":"front left"}</data>
 <value name="VALUE">
-<shadow type="dcMotor_typedEnum_direction" id="l!cH`4wdD{zgcdUD$u=J">
+<shadow type="dcMotor_typedEnum_direction" id="ToR%EHP[-Cw]@$T2BN=*">
 <field name="DIRECTION">REVERSE</field>
 </shadow>
 </value>
 <next>
+<block type="dcMotor_setProperty_Direction" id="qnQs9k5+,jGb#j}]^[_w">
+<field name="IDENTIFIER">rearleftAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"rear left"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="^%QPYPk=m1uj^/QEDg/e">
+<field name="DIRECTION">REVERSE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="%j[l8]z7xmhh*vs@mBc-">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="iNPQUr^MO=G@zVwl4T*P">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="Hy;i9Z/@KscjSdP#z%:#">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="Q-crqfTZ5l4Jz$S0n_x.">
+<field name="RUN_MODE">RUN_WITHOUT_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_ZeroPowerBehavior" id="Vi:2p)X8:)uzXq+dima4">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">ZeroPowerBehavior</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="#L1/r6nDI3{n$plgNe02">
+<field name="ZERO_POWER_BEHAVIOR">BRAKE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="l4@sk*)h+Eyy,!3*AWqf">
+<field name="IDENTIFIER">frontleftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"front left"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="Y@/h~jTzO;4T{I1hT/zU">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="f.erClXjyPv;4d~=OGM_">
+<field name="IDENTIFIER">frontrightAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"front right"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="/Z`4_C2F8:*BgD:SnbHe">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="ESmW#SfE]@(*.T?!]P9/">
+<field name="IDENTIFIER">rearleftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"rear left"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="Zq.[yqE`$tT/^E],s^(M">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="4|[-+*Pp|o?vFUY@hE^P">
+<field name="IDENTIFIER">rearrightAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"rear right"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="Wq(uCQT/8)y.qVaQQVwp">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="fL]G_s32j9QJuSgmn]n0">
+<field name="IDENTIFIER">frontleftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"front left"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="/Hi?}$H1P_Q][9RP_c4%">
+<field name="RUN_MODE">RUN_WITHOUT_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="3OOQ{mwJ`+eiXVG3[-,F">
+<field name="IDENTIFIER">frontrightAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"front right"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="@J#K1s!4DXWDEG[WJ,+c">
+<field name="RUN_MODE">RUN_WITHOUT_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="!`J3S@2{(rFUAHj:Ne((">
+<field name="IDENTIFIER">rearleftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"rear left"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="4)fybXyIf,rWt[u@ASW/">
+<field name="RUN_MODE">RUN_WITHOUT_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="87e(yB%.40}jP6-6/=,S">
+<field name="IDENTIFIER">rearrightAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"rear right"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="e//3Eikrh[:{B%$+XGu(">
+<field name="RUN_MODE">RUN_WITHOUT_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_ZeroPowerBehavior" id="MUVJxOdqwzh]5P~R)jkB" disabled="true">
+<field name="IDENTIFIER">frontleftAsDcMotor</field>
+<field name="PROP">ZeroPowerBehavior</field>
+<data>{"IDENTIFIER":"front left"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="6l)d=sf!{(+Iw(*:_4L7">
+<field name="ZERO_POWER_BEHAVIOR">BRAKE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_ZeroPowerBehavior" id=".T2d(iSm/)vA$=S%ns=@" disabled="true">
+<field name="IDENTIFIER">frontrightAsDcMotor</field>
+<field name="PROP">ZeroPowerBehavior</field>
+<data>{"IDENTIFIER":"front right"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="L;1k,xn+^02:xNwmOWDC">
+<field name="ZERO_POWER_BEHAVIOR">BRAKE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_ZeroPowerBehavior" id="vSV35[mb;jB:1CO/:.O}" disabled="true">
+<field name="IDENTIFIER">rearleftAsDcMotor</field>
+<field name="PROP">ZeroPowerBehavior</field>
+<data>{"IDENTIFIER":"rear left"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="6;~^-nQ6(=kuEWAN-pZi">
+<field name="ZERO_POWER_BEHAVIOR">BRAKE</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_ZeroPowerBehavior" id="E0h,#n;-c=wDrd59g=3j" disabled="true">
+<field name="IDENTIFIER">rearrightAsDcMotor</field>
+<field name="PROP">ZeroPowerBehavior</field>
+<data>{"IDENTIFIER":"rear right"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id=":+D[sPv[`|fIFJRl(5%7">
+<field name="ZERO_POWER_BEHAVIOR">BRAKE</field>
+</shadow>
+</value>
+<next>
+<block type="variables_set" id="3O%i+-zt}Aew_#C_(HG)">
+<field name="VAR" id="|AkrV;vs6Xz|}rTj+2[9">cor_toggle</field>
+<value name="VALUE">
+<block type="math_number" id="St%%;B/XAQ,7Wn;rcfK(">
+<field name="NUM">0</field>
+</block>
+</value>
+<next>
 <block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="servo_setProperty_Number" id="T`(i-b*acc0[^/SY_Dov">
+<field name="IDENTIFIER">armservoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="A/}%RciDyXJKp+H*vA=q">
+<field name="NUM">0.5</field>
+</shadow>
+</value>
 <next>
 <block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
 <field name="MODE">WHILE</field>
@@ -44,7 +219,7 @@
 <block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
 </value>
 <statement name="DO">
-<block type="telemetry_addNumericData_Number" id=";x6q}x=ls4g/^D@Vzf_2">
+<block type="telemetry_addNumericData_Number" id=";x6q}x=ls4g/^D@Vzf_2" disabled="true">
 <value name="KEY">
 <shadow type="text" id="Q5X;U$NmKyO^$|OJcapp">
 <field name="TEXT">power</field>
@@ -257,7 +432,7 @@
 <field name="NUM">1</field>
 </shadow>
 <block type="math_arithmetic" id="g.!ksh1hoy[,=:zJXlmN">
-<field name="OP">MINUS</field>
+<field name="OP">ADD</field>
 <value name="A">
 <shadow type="math_number" id="[l8:ZVo@v6pLGwbK;$ZH">
 <field name="NUM">1</field>
@@ -440,7 +615,7 @@
 <field name="NUM">1</field>
 </shadow>
 <block type="math_arithmetic" id="4Nl/OHFU;Hvt^b;pGU)G">
-<field name="OP">ADD</field>
+<field name="OP">MINUS</field>
 <value name="A">
 <shadow type="math_number">
 <field name="NUM">1</field>
@@ -489,10 +664,10 @@
 <block type="comment" id="lMv[!gg[Y7i9S~HhSPMz">
 <field name="COMMENT">all left side is reversed becasue of mototr mounting </field>
 <next>
-<block type="comment" id="rGl]aAB[J5^1.$N0=*eQ">
+<block type="comment" id="rGl]aAB[J5^1.$N0=*eQ" disabled="true">
 <field name="COMMENT">Right slide code</field>
 <next>
-<block type="controls_if" id="1!kXnL?nU@7nKSpCBF.+">
+<block type="controls_if" id="1!kXnL?nU@7nKSpCBF.+" disabled="true">
 <mutation else="1"/>
 <value name="IF0">
 <block type="gamepad_getProperty_Boolean" id="x%ng_cJ9?PS;MTJ-ea4N">
@@ -502,16 +677,6 @@
 </block>
 </value>
 <statement name="DO0">
-<block type="dcMotor_setProperty_RunMode" id="u6.3YLyAL[;mZYjpm%!Z">
-<field name="IDENTIFIER">rightslideAsDcMotor</field>
-<field name="PROP">Mode</field>
-<data>{"IDENTIFIER":"right slide"}</data>
-<value name="VALUE">
-<shadow type="dcMotor_typedEnum_runMode" id="y_p:;Y~]#y:1nINTy=t+">
-<field name="RUN_MODE">RUN_USING_ENCODER</field>
-</shadow>
-</value>
-<next>
 <block type="dcMotor_setProperty_Number" id="c-BGLF3mC._}[/1jgy;6">
 <field name="IDENTIFIER">rightslideAsDcMotor</field>
 <field name="PROP">Power</field>
@@ -521,41 +686,12 @@
 <field name="NUM">100</field>
 </shadow>
 <block type="math_number" id="W%d%@`99#=+drFMI4{Xm">
-<field name="NUM">10000</field>
+<field name="NUM">1</field>
 </block>
 </value>
-<next>
-<block type="dcMotor_setProperty_RunMode" id="8I=DYisVbjtR}Ys`9)GH">
-<field name="IDENTIFIER">rightslideAsDcMotor</field>
-<field name="PROP">Mode</field>
-<data>{"IDENTIFIER":"right slide"}</data>
-<value name="VALUE">
-<shadow type="dcMotor_typedEnum_runMode" id="hFCA0*RS~$Cf~JxAhAJ0">
-<field name="RUN_MODE">RUN_USING_ENCODER</field>
-</shadow>
-</value>
-</block>
-</next>
-</block>
-</next>
 </block>
 </statement>
 <statement name="ELSE">
-<block type="dcMotor_setProperty_Number" id="]4RG?Wp^j!.}9yAk1lAC">
-<field name="IDENTIFIER">rightslideAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"right slide"}</data>
-<value name="VALUE">
-<shadow type="math_number" id="[u5IJFz7-t1;6CZ%Gg{_">
-<field name="NUM">0</field>
-</shadow>
-<block type="math_number" id="f+7Xxa%OOY_y]F9@yQEh">
-<field name="NUM">0</field>
-</block>
-</value>
-</block>
-</statement>
-<next>
 <block type="controls_if" id="BXVwyysC{!1wwj5jRW^6">
 <mutation else="1"/>
 <value name="IF0">
@@ -566,16 +702,6 @@
 </block>
 </value>
 <statement name="DO0">
-<block type="dcMotor_setProperty_RunMode" id="gfoBGc/XuQRPe@7||=[;">
-<field name="IDENTIFIER">rightslideAsDcMotor</field>
-<field name="PROP">Mode</field>
-<data>{"IDENTIFIER":"right slide"}</data>
-<value name="VALUE">
-<shadow type="dcMotor_typedEnum_runMode" id="1a/=IjAA6?2A(:snpS*]">
-<field name="RUN_MODE">RUN_USING_ENCODER</field>
-</shadow>
-</value>
-<next>
 <block type="dcMotor_setProperty_Number" id="#ooMp1$3HlMaO}_wa5ym">
 <field name="IDENTIFIER">rightslideAsDcMotor</field>
 <field name="PROP">Power</field>
@@ -585,23 +711,9 @@
 <field name="NUM">-100</field>
 </shadow>
 <block type="math_number" id="yI|p,9|@spuc)@Z!gjZ)">
-<field name="NUM">-10000</field>
+<field name="NUM">-1</field>
 </block>
 </value>
-<next>
-<block type="dcMotor_setProperty_RunMode" id="eO:S;%:9Z2,Qs/L5Hw2O">
-<field name="IDENTIFIER">rightslideAsDcMotor</field>
-<field name="PROP">Mode</field>
-<data>{"IDENTIFIER":"right slide"}</data>
-<value name="VALUE">
-<shadow type="dcMotor_typedEnum_runMode" id="jny(8)=aT}Q$-ou2[)zE">
-<field name="RUN_MODE">RUN_USING_ENCODER</field>
-</shadow>
-</value>
-</block>
-</next>
-</block>
-</next>
 </block>
 </statement>
 <statement name="ELSE">
@@ -619,95 +731,56 @@
 </value>
 </block>
 </statement>
+</block>
+</statement>
 <next>
 <block type="comment" id="Ce1Z)189L|PDND4bApgR">
-<field name="COMMENT">Left slide code code</field>
+<field name="COMMENT">Left slide code</field>
 <next>
-<block type="controls_if" id="ArJJZ|EZC%1$Na=a|[Hv">
-<mutation else="1"/>
+<block type="controls_if" id="KMg]Qi_lCbqX#DwwsF10">
 <value name="IF0">
-<block type="gamepad_getProperty_Boolean" id="6IN~$]UMB(X5D$VDC*}.">
-<field name="IDENTIFIER">gamepad1</field>
-<field name="PROP">DpadDown</field>
-<data>{"IDENTIFIER":"gamepad1"}</data>
-</block>
-</value>
-<statement name="DO0">
-<block type="dcMotor_setProperty_RunMode" id="t59axuM}D^[-BmKMSE0@">
-<field name="IDENTIFIER">leftslideAsDcMotor</field>
-<field name="PROP">Mode</field>
-<data>{"IDENTIFIER":"left slide"}</data>
-<value name="VALUE">
-<shadow type="dcMotor_typedEnum_runMode" id="*ze14Yt)QYBiu+j@6t#6">
-<field name="RUN_MODE">RUN_USING_ENCODER</field>
-</shadow>
-</value>
-<next>
-<block type="dcMotor_setProperty_Number" id="iJiHe4VTF^y9-,.81Etb">
-<field name="IDENTIFIER">leftslideAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"left slide"}</data>
-<value name="VALUE">
-<shadow type="math_number">
-<field name="NUM">100</field>
-</shadow>
-<block type="math_number" id="z7yZyfym]wnkXb2a89j(">
-<field name="NUM">10000</field>
-</block>
-</value>
-<next>
-<block type="dcMotor_setProperty_RunMode" id="(HvERliYky@Mhgwqb1pF">
-<field name="IDENTIFIER">leftslideAsDcMotor</field>
-<field name="PROP">Mode</field>
-<data>{"IDENTIFIER":"left slide"}</data>
-<value name="VALUE">
-<shadow type="dcMotor_typedEnum_runMode" id="`On~3)ZEm]zW#~i`9KO:">
-<field name="RUN_MODE">RUN_USING_ENCODER</field>
-</shadow>
-</value>
-</block>
-</next>
-</block>
-</next>
-</block>
-</statement>
-<statement name="ELSE">
-<block type="dcMotor_setProperty_Number" id="|7K-dqX)3yt?5kQN]^X{">
-<field name="IDENTIFIER">leftslideAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"left slide"}</data>
-<value name="VALUE">
-<shadow type="math_number">
-<field name="NUM">0</field>
-</shadow>
-<block type="math_number" id="Kr*]7gg@ojJ8YpyNz3wh">
-<field name="NUM">0</field>
-</block>
-</value>
-</block>
-</statement>
-<next>
-<block type="controls_if" id="ev?,q~KS--x__*m!x@QQ">
-<mutation else="1"/>
-<value name="IF0">
-<block type="gamepad_getProperty_Boolean" id="LgW6FJOtrN3c+D9BZUNl">
-<field name="IDENTIFIER">gamepad1</field>
+<block type="logic_operation" id="s:p^uWlb$Lw?Opw!,jkj">
+<field name="OP">OR</field>
+<value name="A">
+<block type="gamepad_getProperty_Boolean" id="5:[Ol*%hG=)obbV@h`i:">
+<field name="IDENTIFIER">gamepad2</field>
 <field name="PROP">DpadUp</field>
-<data>{"IDENTIFIER":"gamepad1"}</data>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<value name="B">
+<block type="gamepad_getProperty_Boolean" id="zL0t)tzQ!ZWzhqDsK!%p">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">DpadDown</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
 </block>
 </value>
 <statement name="DO0">
-<block type="dcMotor_setProperty_RunMode" id="IyIk/2lb.5b9zP,p3Vo5">
+<block type="dcMotor_setProperty_RunMode" id="_,/_-0Ycahv,8|)+V,B.">
 <field name="IDENTIFIER">leftslideAsDcMotor</field>
 <field name="PROP">Mode</field>
 <data>{"IDENTIFIER":"left slide"}</data>
 <value name="VALUE">
-<shadow type="dcMotor_typedEnum_runMode" id="C!@_sxw*I.4mPKey^WXs">
-<field name="RUN_MODE">RUN_USING_ENCODER</field>
+<shadow type="dcMotor_typedEnum_runMode" id="luWyaRx`SAU[2oh!)lSc">
+<field name="RUN_MODE">RUN_WITHOUT_ENCODER</field>
 </shadow>
 </value>
+</block>
+</statement>
 <next>
-<block type="dcMotor_setProperty_Number" id=";(:ijT.p;]St-|7wN?m:">
+<block type="controls_if" id="ut[|*kppK[qNS9+d;ES3">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="A?xVX;%$j80=)Kc%dxs!">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">DpadDown</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_Number" id=")b(SlZ4$#@]!2FnUeg~Q">
 <field name="IDENTIFIER">leftslideAsDcMotor</field>
 <field name="PROP">Power</field>
 <data>{"IDENTIFIER":"left slide"}</data>
@@ -715,204 +788,848 @@
 <shadow type="math_number">
 <field name="NUM">100</field>
 </shadow>
-<block type="math_number" id=".E1wY;1,XI1dyDLG9)2g">
-<field name="NUM">-10000</field>
+<block type="math_number" id="r}?]^0b`@-CGL`xEp^Q_">
+<field name="NUM">-0.6</field>
 </block>
 </value>
-<next>
-<block type="dcMotor_setProperty_RunMode" id="V#.WGtC+Zb#s*Wq;EcQ9">
-<field name="IDENTIFIER">rightslideAsDcMotor</field>
-<field name="PROP">Mode</field>
-<data>{"IDENTIFIER":"right slide"}</data>
-<value name="VALUE">
-<shadow type="dcMotor_typedEnum_runMode" id="w(-_g[-%ym30*oPWkiIv">
-<field name="RUN_MODE">RUN_USING_ENCODER</field>
-</shadow>
-</value>
-</block>
-</next>
-</block>
-</next>
 </block>
 </statement>
 <statement name="ELSE">
-<block type="dcMotor_setProperty_Number" id="Ul$+`]@`/9J5a*90k]8g">
+<block type="controls_if" id="-.5l%$WUFltj]#$5$!ri">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="[W3Li3Is#QbHzT_jSnIM">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">DpadUp</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_Number" id="/#JaJ5L[j}54Hb=YCnH2">
 <field name="IDENTIFIER">leftslideAsDcMotor</field>
 <field name="PROP">Power</field>
 <data>{"IDENTIFIER":"left slide"}</data>
 <value name="VALUE">
 <shadow type="math_number">
-<field name="NUM">0</field>
+<field name="NUM">-100</field>
 </shadow>
-<block type="math_number" id="e7VOJrJ=jtk)Cd2V?iOQ">
-<field name="NUM">0</field>
-</block>
-</value>
-</block>
-</statement>
-<next>
-<block type="comment" id="y-}Smg$je]([IWQmQw6|">
-<field name="COMMENT">Right pivot code</field>
-<next>
-<block type="controls_if" id="]x{MIO@*_t~4),R6!E@^">
-<mutation else="1"/>
-<value name="IF0">
-<block type="gamepad_getProperty_Boolean" id="A^OJV-4W!7A!zJbG,q*)">
-<field name="IDENTIFIER">gamepad1</field>
-<field name="PROP">DpadRight</field>
-<data>{"IDENTIFIER":"gamepad1"}</data>
-</block>
-</value>
-<statement name="DO0">
-<block type="dcMotor_setProperty_Number" id="qnklD9;kw,ByfmPe}6cR">
-<field name="IDENTIFIER">rightpivotAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"right pivot"}</data>
-<value name="VALUE">
-<shadow type="math_number">
-<field name="NUM">100</field>
-</shadow>
-<block type="math_number" id=")?nqHostV0IOAG_)m[lN">
+<block type="math_number" id="I5}uTW.Euj_Pz6Hjzi#=">
 <field name="NUM">1</field>
 </block>
 </value>
 </block>
 </statement>
 <statement name="ELSE">
-<block type="dcMotor_setProperty_Number" id="h`:NNm0cdih5k=*CS7/y">
-<field name="IDENTIFIER">rightpivotAsDcMotor</field>
+<block type="dcMotor_setProperty_Number" id="HO?f9^4[#~[*b!4QsS!|">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
 <field name="PROP">Power</field>
-<data>{"IDENTIFIER":"right pivot"}</data>
+<data>{"IDENTIFIER":"left slide"}</data>
 <value name="VALUE">
 <shadow type="math_number">
 <field name="NUM">0</field>
 </shadow>
-<block type="math_number" id="e}:rg7Bsh4/,:#U,@@]g">
+<block type="math_number" id="drJ`dq6Hlo`d@C9Psx^H">
 <field name="NUM">0</field>
 </block>
 </value>
 </block>
 </statement>
+</block>
+</statement>
 <next>
-<block type="controls_if" id="{xUW8NU,n$HyL=r6HK(k">
-<mutation else="1"/>
+<block type="controls_if" id="@I9uo[4-0kB#$C8UmXjh">
 <value name="IF0">
-<block type="gamepad_getProperty_Boolean" id="14p:=/XkkwshGTDbmQT}">
-<field name="IDENTIFIER">gamepad1</field>
-<field name="PROP">DpadLeft</field>
-<data>{"IDENTIFIER":"gamepad1"}</data>
+<block type="logic_operation" id="%5SGHoOA!*;5hSeT[d}7">
+<field name="OP">AND</field>
+<value name="A">
+<block type="gamepad_getProperty_Boolean" id="ONu?/6jyM7y!98D5zWnN">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">Y</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="dwJOc9k[p+|$P^+WRz^X">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="servo_getProperty_Number" id="-6,NX3[1yq4,=j?_KNtQ">
+<field name="IDENTIFIER">armservoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="{wTGj?kQpuUW1)[,eShn">
+<field name="NUM">0.5</field>
+</block>
+</value>
+</block>
+</value>
 </block>
 </value>
 <statement name="DO0">
-<block type="dcMotor_setProperty_Number" id="$BmB{/l+1Fnz4rt_305W">
-<field name="IDENTIFIER">rightpivotAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"right pivot"}</data>
+<block type="servo_setProperty_Number" id="]I^?lN)bsv@wIolw{YFT">
+<field name="IDENTIFIER">armservoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
 <value name="VALUE">
-<shadow type="math_number">
-<field name="NUM">100</field>
+<shadow type="math_number" id="a4t}W7DqcwpkTe)}-zZO">
+<field name="NUM">0.11</field>
 </shadow>
-<block type="math_number" id="G%=gc=_7{nR5jwh#^I@+">
-<field name="NUM">-1</field>
+<block type="math_arithmetic" id=":f[*:9b`6U:!o/TuEOqj">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number" id="`lKLhsI)Ky2-dt}Ytyn!">
+<field name="NUM">1</field>
+</shadow>
+<block type="servo_getProperty_Number" id="|sanSLH~*nkbeRkpQaQT">
+<field name="IDENTIFIER">armservoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
 </block>
 </value>
-</block>
-</statement>
-<statement name="ELSE">
-<block type="dcMotor_setProperty_Number" id="ns0xWk*K@rJH8rFuKQtf">
-<field name="IDENTIFIER">rightpivotAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"right pivot"}</data>
-<value name="VALUE">
-<shadow type="math_number">
-<field name="NUM">0</field>
+<value name="B">
+<shadow type="math_number" id="mRoT!|;P:SiZ[u+KbQj_">
+<field name="NUM">0.02</field>
 </shadow>
-<block type="math_number" id="?WqZS]T)yBZF^-z0R$:F">
-<field name="NUM">0</field>
+</value>
 </block>
 </value>
 </block>
 </statement>
 <next>
-<block type="comment" id="r,iJ..!E1%RO)yRh04J7">
-<field name="COMMENT">Left pivot code</field>
-<next>
-<block type="controls_if" id="-u(;~Ecf[aj7!/O!30dT">
-<mutation else="1"/>
+<block type="controls_if" id="*VQ!mOhb2XozJFQ6?4W-">
 <value name="IF0">
-<block type="gamepad_getProperty_Boolean" id="C[35%+6;F/I(-v!Ah#tE">
-<field name="IDENTIFIER">gamepad1</field>
-<field name="PROP">DpadRight</field>
-<data>{"IDENTIFIER":"gamepad1"}</data>
+<block type="logic_operation" id=")w-HZ0E#s@8Z3aKjT]@%">
+<field name="OP">AND</field>
+<value name="A">
+<block type="gamepad_getProperty_Boolean" id="B0L-9@B*}LJf|~gz!2AH">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">A</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<value name="B">
+<block type="logic_operation" id="A65}PZjqP#`4Hj5_6qbU">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="J,udk@2:aSRo?K[z_n.m">
+<field name="OP">GTE</field>
+<value name="A">
+<block type="servo_getProperty_Number" id="Ph2C|Jj[|S)XRmlY;mq^">
+<field name="IDENTIFIER">armservoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="t*dk(/:]D6Gh8?jGbASY">
+<field name="NUM">0.0988888888898</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="BuidP3]|Ou7K-^uHT=]5">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="servo_getProperty_Number" id="{PsGllRsRUUj-QQ7wcs#">
+<field name="IDENTIFIER">armservoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="B=(Zd4jZ%*d.y/0Hs3#a">
+<field name="NUM">1</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
 </block>
 </value>
 <statement name="DO0">
-<block type="dcMotor_setProperty_Number" id="nnI/]E1SGoAqCD{Z5vZ7">
-<field name="IDENTIFIER">leftpivotAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"left pivot"}</data>
+<block type="servo_setProperty_Number" id="%Q#M]Ao0!!JZ/q}/.ZM@">
+<field name="IDENTIFIER">armservoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
 <value name="VALUE">
-<shadow type="math_number">
-<field name="NUM">100</field>
+<shadow type="math_number" id="I8e]IXH:[KmlH$P)u8dZ">
+<field name="NUM">0.5</field>
 </shadow>
-<block type="math_number" id="SYQ_77v6akILiNm1!fTN">
-<field name="NUM">-1</field>
+<block type="math_arithmetic" id="DQN!v_VCE}q(j2Ih,|Xv">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number" id=".%cwFw-*=$h#,?cH+W@0">
+<field name="NUM">1</field>
+</shadow>
+<block type="servo_getProperty_Number" id="7*-i4a(0IbvD1QxN4up(">
+<field name="IDENTIFIER">armservoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
 </block>
 </value>
-</block>
-</statement>
-<statement name="ELSE">
-<block type="dcMotor_setProperty_Number" id="8%7OA/IDao{M(0]Vwz?D">
-<field name="IDENTIFIER">leftpivotAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"left pivot"}</data>
-<value name="VALUE">
-<shadow type="math_number">
-<field name="NUM">0</field>
+<value name="B">
+<shadow type="math_number" id="!#+CTR2U%G|@iKQLaC#8">
+<field name="NUM">0.02</field>
 </shadow>
-<block type="math_number" id="S79o+|vp9ssn`nsiFC%`">
-<field name="NUM">0</field>
+</value>
 </block>
 </value>
 </block>
 </statement>
 <next>
-<block type="controls_if" id="~p]wy:oLlcZ#x_YG_Ys/">
-<mutation else="1"/>
+<block type="controls_if" id="R6#2/u(;tn8$?S-R3$j$">
 <value name="IF0">
-<block type="gamepad_getProperty_Boolean" id="rK@bvw:z-pN1]7oMA~+m">
-<field name="IDENTIFIER">gamepad1</field>
-<field name="PROP">DpadLeft</field>
-<data>{"IDENTIFIER":"gamepad1"}</data>
+<block type="gamepad_getProperty_Boolean" id="@1KZ?uo:i-wPxOe.GJ(s">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">LeftBumper</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
 </block>
 </value>
 <statement name="DO0">
-<block type="dcMotor_setProperty_Number" id="(89EFFE{1JnpdS1ykdu]">
-<field name="IDENTIFIER">leftpivotAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"left pivot"}</data>
+<block type="servo_setProperty_Number" id="}:muse}uK$GZk5(GK,[r">
+<field name="IDENTIFIER">clawAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"claw"}</data>
 <value name="VALUE">
-<shadow type="math_number">
-<field name="NUM">100</field>
+<shadow type="math_number" id="E72nx-9ri/S`ToCI*F1-">
+<field name="NUM">1</field>
 </shadow>
-<block type="math_number" id="5W=(Dv.l$ex.o.fOx1jA">
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="6hb~C?9CE^yKfFzvJ82Z">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="sJslVr/QDK-o#5q/k,BE">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">RightBumper</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="@~+GFF[/J~df9b`5w@WJ">
+<field name="IDENTIFIER">clawAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"claw"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="7X[6dGTh5_kU/(Z@2?#?">
+<field name="NUM">0.6</field>
+</shadow>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="_N_a=ii~w~L`BJM`ipZ~">
+<mutation else="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="SFZ3nEvGw_i7:jOJ-a12">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">B</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="kLCo$Yh?vbHEo`Xoova)">
+<value name="IF0">
+<block type="logic_negate" id="K5R1_}rrdwX_!wiOY^*E">
+<value name="BOOL">
+<block type="variables_get" id="|5cX3XC#V(0{Kv2aEma$">
+<field name="VAR" id="h(`gv`(v?Y}6q.nnyfAs">b_pressed</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="lRnggboOld.ZUJ5=SIF,">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="nT#sHvi9}s3g-+r*nHvn">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="!#aX70)xN2MFS=Z~Twxc">
+<field name="VAR" id="|AkrV;vs6Xz|}rTj+2[9">cor_toggle</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="~=q8YU@chbM;S%nC{gi:">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id=",khDT~eF6w=Ofun+5O5p">
+<field name="VAR" id="|AkrV;vs6Xz|}rTj+2[9">cor_toggle</field>
+<value name="VALUE">
+<block type="math_number" id="e)64q:)[QpJ}0[331^T!">
 <field name="NUM">1</field>
 </block>
 </value>
 </block>
 </statement>
 <statement name="ELSE">
-<block type="dcMotor_setProperty_Number" id="RKx=Zemhaz)@cH^sB__E">
-<field name="IDENTIFIER">leftpivotAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"left pivot"}</data>
+<block type="variables_set" id="|%kZ*!WC2{4TiSGGygfH">
+<field name="VAR" id="|AkrV;vs6Xz|}rTj+2[9">cor_toggle</field>
+<value name="VALUE">
+<block type="math_number" id="k[D9G-l)t2[uwgT(6EeX">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="variables_set" id="]5oh@?N%GZyF)Gq!Z|%v">
+<field name="VAR" id="h(`gv`(v?Y}6q.nnyfAs">b_pressed</field>
+<value name="VALUE">
+<block type="logic_boolean" id="9l`)^Ve3vasl$$y;(IOT">
+<field name="BOOL">TRUE</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="P7h~#1,]gH]YU$?)t}!%">
+<field name="VAR" id="h(`gv`(v?Y}6q.nnyfAs">b_pressed</field>
+<value name="VALUE">
+<block type="logic_boolean" id="1an0ffz%%k5NG_3KiIan">
+<field name="BOOL">FALSE</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="0k!H~as~|EHKd~JM+a7`">
+<value name="IF0">
+<block type="logic_operation" id="x-Hp*$Jtw%=t?qSr_Qpi">
+<field name="OP">OR</field>
+<value name="A">
+<block type="gamepad_getProperty_Boolean" id="Tijqd67N($$BSAz|XnRv">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">DpadUp</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<value name="B">
+<block type="gamepad_getProperty_Boolean" id="@O_bu8Xx1D~WXf@clF%J">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">DpadDown</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="o-/z#q=?aaqa!+)tUu5p">
+<field name="VAR" id="aIODa(*DS^aODW|4y=QG">n</field>
+<value name="VALUE">
+<block type="dcMotor_getProperty_Number" id="O[qY?I()Q]ZtT8D|+gR}">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="}MF^rSwb/JqX^!NPA;m6">
+<value name="IF0">
+<block type="logic_compare" id="6I8SvFeT+JYvl|!|o~VQ">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id=")0l6vx@!8tMpB}*9/^SX">
+<field name="VAR" id="|AkrV;vs6Xz|}rTj+2[9">cor_toggle</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="m9L4YDQ.hC}j7hZgqQCP">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="Q*{eEkWn7:T#Jmg3S8qQ">
+<value name="IF0">
+<block type="logic_negate" id="OH+]l5kK1Fm6,XP!#],I">
+<value name="BOOL">
+<block type="logic_operation" id="nK|Nurr!!LCP._n4MrdB">
+<field name="OP">OR</field>
+<value name="A">
+<block type="gamepad_getProperty_Boolean" id="(Rnq3)4lIdJ?/E+|whnJ">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">DpadUp</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<value name="B">
+<block type="gamepad_getProperty_Boolean" id="=_tneN5a|t}t6B:p.*Ji">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">DpadDown</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="cu[8dug}Vu9X)^7o7vd[">
+<value name="IF0">
+<block type="logic_compare" id="]`E)=+HSRtbxrUf!MZZ)">
+<field name="OP">GT</field>
+<value name="A">
+<block type="math_single" id="c4Un38+*}j[=x:5(*v~_">
+<field name="OP">ABS</field>
+<value name="NUM">
+<shadow type="math_number" id="Q~45y#)%U1.(+57u+VQ)">
+<field name="NUM">9</field>
+</shadow>
+<block type="math_arithmetic" id="2:DScPPA,5~#yhp]~g3g">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number" id="rzD7/B#Eh.vWzOpsDq.R">
+<field name="NUM">1</field>
+</shadow>
+<block type="variables_get" id="F*-K84Bhi%IV$y*F#Bdf">
+<field name="VAR" id="aIODa(*DS^aODW|4y=QG">n</field>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="W11jdiEywzgnI4T^QW/B">
+<field name="NUM">1</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="ZoQqU~Sn$[KikNiz`mrb">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="V5A$9]A2kUhajT~g+,XS">
+<field name="NUM">25</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_Number" id="uq`.X2SHhiI/RfNZ[g93">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"left slide"}</data>
 <value name="VALUE">
 <shadow type="math_number">
 <field name="NUM">0</field>
 </shadow>
-<block type="math_number" id="N@:4[e.8QZlRikuScrvj">
-<field name="NUM">0</field>
+<block type="variables_get" id="S8R)Tvf#ze[808M;+[h3">
+<field name="VAR" id="aIODa(*DS^aODW|4y=QG">n</field>
 </block>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="_{-@|2+Txdka%*Mg@[N*">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="aDnbCn|G2**;^`M:I4EM">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id=",|E|fA~`+68;#GaP/L?h">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="variables_get" id="krHY`N:9Dq*g6x/8lQ[s">
+<field name="VAR" id="aIODa(*DS^aODW|4y=QG">n</field>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="H_dL8#amvt0T:27yd,#?">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="U*TLNoG(B|viH]jM[;Le">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="j$fSf{(0bNNh/y_/OhXc">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="G`9lxUYH7G!-zfHOU@cG">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">A</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setPwmDisable" id="uhDWqRWA75U`OQ5|J(-3">
+<field name="IDENTIFIER">armservoAsServo</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
+<next>
+<block type="dcMotor_setProperty_Number" id="y9MqaM4%JmZqgcI_=:~^">
+<field name="IDENTIFIER">winchAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"winch"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="!kfXis7/YV`_F#(I(B=i">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="i}G#)FLbOx{f,A8/%9Fv">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="I#$pIQu3o?.Me/5@%Qes">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">B</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setPwmDisable" id="~Fuy){)NC}4EHVy3+/o8">
+<field name="IDENTIFIER">armservoAsServo</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
+<next>
+<block type="dcMotor_setProperty_Number" id="87v=hze+I=pmaRbI=~Sr">
+<field name="IDENTIFIER">winchAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"winch"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="w_1#g|+[T[v#|}H!C$mh">
+<field name="NUM">-1</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+<next>
+<block type="telemetry_addNumericData_Number" id="r$YX/[#CGjn82bL^yEM=">
+<value name="KEY">
+<shadow type="text" id="WjqptL`P,-y(ZpvTm}wn">
+<field name="TEXT">arm position</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="rK{oni,bU#Z,UE:q0-pq">
+<field name="NUM">123</field>
+</shadow>
+<block type="servo_getProperty_Number" id="a`_3w`6+nV{h+%xiv;oE">
+<field name="IDENTIFIER">armservoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="DudUtTZVvkaUy{c4gN_9">
+<value name="KEY">
+<shadow type="text" id="E@]i)iq1Gc0B6nCOWQ]7">
+<field name="TEXT">cor toggle</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="W%tUB[v;t:GHJ)f+7,=a">
+<field name="NUM">123</field>
+</shadow>
+<block type="variables_get" id="R|6)jkZk2IO_TSK7}OZ!">
+<field name="VAR" id="|AkrV;vs6Xz|}rTj+2[9">cor_toggle</field>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="6,X,J`OhvAv@VbG({a:b">
+<value name="KEY">
+<shadow type="text" id="L=?E0P=_]Qo}jNYG-F0K">
+<field name="TEXT">n</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="r`J9aT,FE/.f.-1gx.s@">
+<field name="NUM">123</field>
+</shadow>
+<block type="variables_get" id="q,^Gyuu/ePazf1FWS])O">
+<field name="VAR" id="aIODa(*DS^aODW|4y=QG">n</field>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="}NaF*#0T0{wp@@z^z%Ai">
+<value name="KEY">
+<shadow type="text" id="Ff^OAAW8?cJ.[y;5:5oa">
+<field name="TEXT">leftslide actual pos</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="$HA@,;WQ+5:ag:;))jID">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="j4i,XAq8(ekQ1E]VUP)A">
+<field name="IDENTIFIER">leftslideAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"left slide"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="nprtr=2Xuc0-v/F862Ro">
+<value name="KEY">
+<shadow type="text" id="M3,(jyUkP^LrMn`]*C`i">
+<field name="TEXT">front left pos</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="5JV[O/J/JaVs0qL8uR95">
+<field name="IDENTIFIER">frontleftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"front left"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="F/uOJ$KN2vE@0~=B.C,v">
+<value name="KEY">
+<shadow type="text" id="alkk511U4a-[2NkLL`5q">
+<field name="TEXT">front right pos</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="+5?bQ8P)VKomVjsL6r3g">
+<field name="IDENTIFIER">frontrightAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"front right"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="H.}HO6RP]HSo`0MXX*6,">
+<value name="KEY">
+<shadow type="text" id="y.(Zx]aMf)mKP-hz?dEF">
+<field name="TEXT">rear left pos</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="~Y3EX[ZSoEaO[){%:)`p">
+<field name="IDENTIFIER">rearleftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"rear left"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="dB/+Xa~1bk^w10MtoSg9">
+<value name="KEY">
+<shadow type="text" id="[1OU`|KUpWFMFG?JgjWJ">
+<field name="TEXT">rear right pos</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="bf6FM8u.53DqJI;;8zAk">
+<field name="IDENTIFIER">rearrightAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"rear right"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="hre|~F)Hzm*z$COE{ygv"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="comment" id="S.xQzwwbBl4%gE1*xz8K" x="440" y="1709">
+<field name="COMMENT">if needed</field>
+<next>
+<block type="controls_if" id="!i[]afWFw-b~s}{}a1V4">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id=".j3,HNZ}4@uiPps1Q5M!">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">B</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="^N3oFg@|fm-6k]dFFJs%">
+<field name="IDENTIFIER">armservoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="s5s(6pxsTQ308_2N5zO{">
+<field name="NUM">0.55</field>
+</shadow>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="iLbvGUCVDxT#^E[3=Vh,">
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="evaRQ6+^wMZ_~B;{_/,X">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">X</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="servo_setProperty_Number" id="HzPQi4DVJR~E!%ZOsU3S">
+<field name="IDENTIFIER">armservoAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"arm servo"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="CbA0tU.a,)ky^E!ePHaT">
+<field name="NUM">0.32</field>
+</shadow>
 </value>
 </block>
 </statement>
@@ -920,68 +1637,6 @@
 </next>
 </block>
 </next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</statement>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</statement>
 </block>
 </xml>
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
