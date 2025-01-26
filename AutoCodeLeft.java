@@ -48,73 +48,21 @@ public class AutoCodeLeft extends LinearOpMode {
         if (opModeIsActive()) {
             timer.reset();
 
-            // Reset encoders for slide motors
-            leftslide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            rightslide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            // Move robot forward for 2 seconds
-            while (opModeIsActive() && timer.seconds() <= 2) {
+            // Adjust parking position for 5 seconds (from 20s to 25s)
+            while (opModeIsActive() && timer.seconds() <= 10) {
                 frontleft.setPower(1);
-                frontright.setPower(1);
-                rearleft.setPower(1);
-                rearright.setPower(1);
-            }
-
-            // Rotate left for 0.5 seconds (from 2s to 2.5s)
-            while (opModeIsActive() && timer.seconds() <= 2.5) {
-                frontleft.setPower(-1);
-                frontright.setPower(1);
+                frontright.setPower(-1);
                 rearleft.setPower(-1);
                 rearright.setPower(1);
             }
-
-            // Move forward to bucket for 0.5 seconds (from 2.5s to 3s)
-            while (opModeIsActive() && timer.seconds() <= 3) {
-                frontleft.setPower(1);
-                frontright.setPower(1);
-                rearleft.setPower(1);
-                rearright.setPower(1);
-            }
-
-            // Activate pivots for 0.5 seconds (from 9s to 9.5s)
-            while (opModeIsActive() && timer.seconds() <= 9.5) {
-                leftpivot.setPower(1);
-                rightpivot.setPower(1);
-            }
-
-            // Extend slide for 1.5 seconds (from 9.5s to 11s)
-            while (opModeIsActive() && timer.seconds() <= 11) {
-                leftslide.setPower(1);
-                rightslide.setPower(1);
-            }
-
-            // Activate servos for 1 second (from 11s to 12s)
-            while (opModeIsActive() && timer.seconds() <= 12) {
-                leftservo.setPower(-1);
-                rightservo.setPower(-1);
-            }
-
-            // Unextend slide for 2 seconds (from 12s to 14s)
-            while (opModeIsActive() && timer.seconds() <= 14) {
-                leftslide.setPower(-1);
-                rightslide.setPower(-1);
-            }
-
-            // Park robot in the observation zone for 6 seconds (from 14s to 20s)
-            while (opModeIsActive() && timer.seconds() <= 20) {
+            while (opModeIsActive() && timer.seconds() <= 13 && timer.seconds() > 10) {
                 frontleft.setPower(-1);
                 frontright.setPower(-1);
                 rearleft.setPower(-1);
                 rearright.setPower(-1);
             }
 
-            // Adjust parking position for 5 seconds (from 20s to 25s)
-            while (opModeIsActive() && timer.seconds() <= 25) {
-                frontleft.setPower(1);
-                frontright.setPower(-1);
-                rearleft.setPower(-1);
-                rearright.setPower(1);
-            }
         }
     }
 }

@@ -15,7 +15,6 @@ public class AutoCodeRight extends LinearOpMode {
     private DcMotor frontleft, frontright, rearleft, rearright;
     private CRServo leftservo, rightservo;
 
-    // Timer for autonomous actions
     private ElapsedTime timer = new ElapsedTime();
 
     @Override
@@ -40,8 +39,8 @@ public class AutoCodeRight extends LinearOpMode {
         rightservo.setDirection(CRServo.Direction.REVERSE);
 
         // Set initial positions for slide motors (Optional)
-        int position_leftslide = leftslide.getCurrentPosition();
-        int position_rightslide = rightslide.getCurrentPosition();
+        int positionLeftSlide = leftslide.getCurrentPosition();
+        int positionRightSlide = rightslide.getCurrentPosition();
 
         // Wait for the game to start
         waitForStart();
@@ -49,80 +48,32 @@ public class AutoCodeRight extends LinearOpMode {
         if (opModeIsActive()) {
             timer.reset();
 
-            // Reset encoders for slide motors
-            leftslide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            rightslide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-            // Move robot forward for 2 seconds
-            while (opModeIsActive() && timer.seconds() <= 2) {
-                frontleft.setPower(1);
-                frontright.setPower(1);
-                rearleft.setPower(1);
-                rearright.setPower(1);
-            }
-
-            // Move left for 3 seconds (from 2s to 5s)
+            // Adjust parking position for 5 seconds (from 20s to 25s)
             while (opModeIsActive() && timer.seconds() <= 5) {
                 frontleft.setPower(1);
                 frontright.setPower(-1);
-                rearleft.setPower(1);
-                rearright.setPower(-1);
-            }
-
-            // Rotate left for 0.5 seconds (from 5s to 5.5s)
-            while (opModeIsActive() && timer.seconds() <= 5.5) {
-                frontleft.setPower(-1);
-                frontright.setPower(1);
                 rearleft.setPower(-1);
                 rearright.setPower(1);
             }
-
-            // Move forward to the bucket for 3.5 seconds (from 5.5s to 9s)
-            while (opModeIsActive() && timer.seconds() <= 9) {
-                frontleft.setPower(1);
-                frontright.setPower(1);
-                rearleft.setPower(1);
-                rearright.setPower(1);
-            }
-
-            // Activate pivots for 2 seconds (from 9s to 11s)
-            while (opModeIsActive() && timer.seconds() <= 11) {
-                leftpivot.setPower(1);
-                rightpivot.setPower(1);
-            }
-
-            // Activate slide for 2 seconds (from 11s to 13s)
-            while (opModeIsActive() && timer.seconds() <= 13) {
-                leftslide.setPower(1);
-                rightslide.setPower(1);
-            }
-
-            // Move servos for 2 seconds (from 13s to 15s)
-            while (opModeIsActive() && timer.seconds() <= 15) {
-                leftservo.setPower(-1);
-                rightservo.setPower(1);
-            }
-
-            // Unextend slide for 2 seconds (from 15s to 17s)
-            while (opModeIsActive() && timer.seconds() <= 17) {
-                leftslide.setPower(-1);
-                rightslide.setPower(-1);
-            }
-
-            // Park robot in the observation zone for 6 seconds (from 17s to 23s)
-            while (opModeIsActive() && timer.seconds() <= 23) {
+            while (opModeIsActive() && timer.seconds() <= 8 && timer.seconds() > 5) {
                 frontleft.setPower(-1);
                 frontright.setPower(-1);
                 rearleft.setPower(-1);
                 rearright.setPower(-1);
             }
 
-            // Adjust robot for parking position for 5 seconds (from 23s to 28s)
-            while (opModeIsActive() && timer.seconds() <= 28) {
+            while (opModeIsActive() && timer.seconds() <= 10 && timer.seconds() > 8) {
                 frontleft.setPower(1);
+                frontright.setPower(1);
+                rearleft.setPower(1);
+                rearright.setPower(1);
+            }
+            while (opModeIsActive() && timer.seconds() <= 13 && timer.seconds() > 10) {
+                frontleft.setPower(-1);
                 frontright.setPower(-1);
                 rearleft.setPower(-1);
-                rearright.setPower(1);
+                rearright.setPower(-1);
             }
         }
     }
